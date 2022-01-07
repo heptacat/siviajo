@@ -1,0 +1,17 @@
+<template>
+    <div>
+        <Navbar />
+        <NavbarFilter style="float:left" />
+        <nuxt />
+    </div>
+</template>
+
+<script>
+    import Navbar from '~/components/Navbar'
+
+    export default {
+        components: {
+            Navbar
+        },
+    }
+</script>

@@ -449,7 +449,7 @@ app.get('/places/cellars/cbf/:user', (req, res) => {
                 nReviewsRatios[i] /= nReviewsRatios[0]
             }
             for (var i = 0; i < cellars.length; i++) {
-                cellarRecomendationRatio.push(nReviewsRatios[i] * 0.65 + commentRatios[i] * 0.35)
+                cellarRecomendationRatio.push(nReviewsRatios[i] * 0.1 + commentRatios[i] * 0.9)
             }
 
             query = "MATCH (u1:User{username: '" + req.params.user + "'})-[:SEARCHES]->(f1:Filters)\

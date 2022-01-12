@@ -44,8 +44,8 @@
                         <thead>
                             <tr>
                                 <th scope="col">Nombre</th>
-                                <th scope="col">Tipo</th>
                                 <th scope="col">Denominación de origen</th>
+                                <th scope="col">Tipo</th>
                             </tr>
                         </thead>
                         <tbody>

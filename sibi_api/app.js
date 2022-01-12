@@ -150,9 +150,10 @@ app.post('/places/cellars/popularf/', (req, res) => {
     } else {
         query = "MATCH (w:Wine{type:'" + params.winetype + "', do:'" + params.doo + "'})<-[:SELLS]-(n:Bodegas{})-[:IS_IN]->(d:Destination{name:'" + params.dest + "'}) "
     }
-    query = query + "WITH DISTINCT n.name as name, n.photoUrl as photoUrl, d.name as destination\
+    query = query + "WITH DISTINCT n.name as name, n.photoUrl as photoUrl, d.name as destination, n.nReviews as nReviews\
     return collect(name)[" + slideLow + ".." + slideHigh + "] as names, collect(photoUrl)[" + slideLow + ".." + slideHigh + "] as photoUrls,\
-    collect(destination)[" + slideLow + ".." + slideHigh + "] as destinations, count(name) as nResults"
+    collect(destination)[" + slideLow + ".." + slideHigh + "] as destinations, count(name) as nResults, nReviews ORDER BY nReviews DESC"
+    console.log(query)
     bodegas = []
     nResults = 0
     const runQuery = session.run(query).subscribe({
